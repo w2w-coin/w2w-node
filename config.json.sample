@@ -1,0 +1,24 @@
+{
+  "node": {
+    "args": [],
+    "port": 21016,
+    "rfcTimeout": 10,
+    "bindAddr": "0.0.0.0"
+  },
+  "restart": {
+    "terminateTimeout": 5,
+    "errorForgetTime": 600,
+    "maxCloseErrors": 3,
+    "maxBlockTime": 1800,
+    "maxInitTime": 900
+  },
+  "api": {
+    "port": 8080
+  },
+  "pool": {
+    "notify": {
+      "url": "https://explorer.w2wcoin.org/pool/update",
+      "interval": 30
+    }
+  }
+}

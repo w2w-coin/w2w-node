@@ -1,0 +1,12 @@
+/node_modules
+/w2wd.exe
+/w2wd.log
+/w2wd
+/package-lock.json
+/config.json
+
+.idea
+/bin
+/.vscode
+/.scannerwork
+/w2w-node-win64.exe

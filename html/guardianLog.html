@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="css/prism.css">
+<div class="card mg-t-20" id="w2wNodeLogCard">
+  <div class="card-header tx-medium bd-0 tx-white bg-primary-dark">
+    <h2>
+      <i class="icon ion-ios-book-outline"></i></i> W2W Node Log</span>
+      <button class="btn btn-primary-outline" type="button" id="refreshW2wNodeLog">
+        <span class="btnIcon fa fa-search"></span><span tkey="refreshW2wNodeLog">Refresh</span>
+      </button>
+    </h2>
+  </div>
+  <div class="card-body card-body-info">
+    <div class="row">
+      <div class="col-lg-12">
+        <pre id="w2wNodeLogWrapper" class="codeContainer">
+          <code data-src="prism.js" class="language-css" id="W2wNodeLog"></code>
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/prism.js"></script>
+<script>
+  var w2wNodeLogIndicator = null;
+
+  function loadW2wNodeLogData() {
+    if (w2wNodeLogIndicator == null) {
+      w2wNodeLogIndicator = $('#w2wNodeLogCard').loadingIndicator({
+        useImage: false,
+        showOnInit: false
+      }).data("loadingIndicator");
+    }
+
+    // show the indicator
+    w2wNodeLogIndicator.show();
+
+    $.get("/getW2wNodeLog", function (data) {
+      $("#w2wNodeLog").text(data);
+      w2wNodeLogIndicator.hide();
+    });
+  }
+
+  $("#refreshW2wNodeLog").on("click", function () {
+    loadW2wNodeLogData();
+  });
+
+  loadW2wNodeLogData();
+</script>
