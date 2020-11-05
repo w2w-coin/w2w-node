@@ -16,7 +16,7 @@ for /D %%p in (".\bin\linux\*.*") do rmdir "%%p" /s /q
 call pkg index.js --targets node10-linux-x64 --output .\bin\linux\w2w-node-linux64
 xcopy /s /q /i html bin\linux\html
 copy exclude.txt .\bin\linux\exclude.txt
-copy w2w-nolde.service.template .\bin\linux
+copy w2w-node.service.template .\bin\linux
 copy config.json.sample .\bin\linux\config.json
 .\tools\7z.exe a -r -ttar .\bin\linux\w2w-node-linux64.tar .\bin\linux\w2w-node-linux64 .\bin\linux\config.json .\bin\linux\exclude.txt .\bin\linux\w2w-node.service.template .\bin\linux\html
 .\tools\7z.exe a -tgzip .\bin\linux\w2w-node-linux64.tar.gz .\bin\linux\w2w-node-linux64.tar
